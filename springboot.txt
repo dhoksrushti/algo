@@ -1,0 +1,88 @@
+What is spring boot?(create spring based Applications)
+Spring framework - to write Java enterprice application, bootstrap spring application
+Formal defination - Spring boot makes it easy to create stand-alone, production-grade 
+Spring based Applications that you can "just run"
+
+What is Spring
+- Applications Framework
+- Programming n configuration model
+-Infrastructure support - db
+
+Problems with spring
+- huge framework
+-Multiple setup steps
+-Multiple build n deployment steps
+Multiple configuration steps
+
+Spring boot enterprice
+- opinionated
+convention over configuration
+Standalone
+Production ready
+
+Setup - java 8 sdk
+		Spring STS - ide
+		maven
+		
+		In pom.xml add parent as - spring-boot-starter-parent from groupr id org.springframework.boot
+		
+		In pom, specify dependency for spring-boot-starter-web(all web related jar for rest calls etc)
+
+Statring coding
+
+@SpringBootApplication
+public class CourseApiApp{
+	public static void main(args){
+	SpringApplication.run(CourseApiApp.class, args)}
+}		
+		
+Starting Spring Boot
+-sets up default Configuration
+-starts spring application context(spring acts as contaianer fpr services)
+-performs classpath scan
+- starts tomcat server
+
+Rest Controller and more controller mapping
+
+@RestController (it is from spring mvc)
+public class  HelloController{
+	
+	@RequestMapping("/hello")
+	 public String sayHi(){
+		return "HI";
+	 }
+}
+
+@RestController 
+public class  TopicController{
+	
+	@RequestMapping("/topics")
+	 public List<Topic> getAllTopics(){
+		return Arrays.asList(
+			new Topic("spring", "Spring framework1", "xyz"),
+			new Topic("spring", "Spring framework1", "abc"),
+			new Topic("spring", "Spring framework1", "mno")
+		
+		);
+	 }
+} This will give json object as per the contructor of topic
+
+
+public class Topic{
+String id;
+String name;
+String desc;
+}
+
+--------------
+
+Different ways of creating spring boot application
+Spring Initializer
+Spring Boot CLI
+STS IDE
+----------
+
+application.yml for configuration
+_________________
+
+
